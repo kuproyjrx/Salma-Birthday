@@ -1652,10 +1652,20 @@ const perr=document.getElementById('PERR');
 function updDots(){pdots.forEach((d,i)=>{d.classList.toggle('on',i<pin.length);d.classList.remove('err');});}
 function shakeErr(){pdots.forEach(d=>d.classList.add('err'));perr.classList.add('on');setTimeout(()=>{pdots.forEach(d=>d.classList.remove('err'));perr.classList.remove('on');},1200);pin='';updDots();}
 function tryUnlock(){
-  if(pin===PWD){
-    const lk=document.getElementById('LOCK');lk.classList.add('out');
-    setTimeout(()=>{lk.style.display='none';startStory();},1200);
-  }else shakeErr();
+ if(pin===PWD){
+   const lk=document.getElementById('LOCK');
+   lk.classList.add('out');
+
+   const music = document.getElementById("bgMusic");
+   music.volume = 0.7;
+   music.play().catch(()=>{});
+
+   setTimeout(()=>{
+     lk.style.display='none';
+     startStory();
+   },1200);
+
+ }else shakeErr();
 }
 document.querySelectorAll('.nk[data-n]').forEach(b=>{
   b.addEventListener('click',()=>{
@@ -2476,5 +2486,8 @@ function initQuiz(){
 }
 
 </script>
+<audio id="bgMusic" loop>
+  <source src="lagu 1.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
