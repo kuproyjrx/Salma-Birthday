@@ -1177,7 +1177,7 @@ canvas.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
     <button class="nk" data-n="0" style="grid-column:2">0</button>
     <button class="nk" id="DELBTN" style="font-size:.85rem">⌫</button>
   </div>
-  <p class="lock-hint">✦ &nbsp; 1234 &nbsp; ✦</p>
+  <p class="lock-hint">✦ &nbsp; Tebak &nbsp; ✦</p>
 </div>
 
 
@@ -1196,7 +1196,7 @@ canvas.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
     <div class="scene-badge">Opening</div>
     <div id="FLOATHEARTS" style="position:absolute;inset:0;pointer-events:none;z-index:0"></div>
     <div class="opening-frame">
-      <p class="scene-label">A Birthday Film</p>
+      <p class="scene-label">Salma Birthday</p>
       <h1 class="scene-title" style="font-size:clamp(3rem,12vw,7rem);letter-spacing:.08em">Happy<br><em class="shimmer-text">Birthday</em></h1>
       <div class="gold-rule"></div>
       <p class="opening-date">— Untuk seseorang yang istimewa —</p>
@@ -1646,7 +1646,7 @@ document.addEventListener('mouseout',e=>{
 })();
 
 // ── LOCK ──
-const PWD='1234';let pin='';
+const PWD='1003';let pin='';
 const pdots=[0,1,2,3].map(i=>document.getElementById('d'+i));
 const perr=document.getElementById('PERR');
 function updDots(){pdots.forEach((d,i)=>{d.classList.toggle('on',i<pin.length);d.classList.remove('err');});}
