@@ -1465,7 +1465,13 @@ canvas.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
   <button class="pill-btn" id="PILL_X">✕</button>
 </div>
 <!-- 🎵 GANTI src="" dengan path MP3 kamu, contoh: src="lagu.mp3" -->
-<audio id="BS_AUD" src="" loop preload="auto"></audio>
+<audio id="BS_AUD" src="lagu1.mp3" loop preload="auto"></audio>
+  <audio id="BS_AUD" src="lagu3.mp3" loop preload="auto"></audio>
+  <audio id="BS_AUD" src="myfav.mp3" loop preload="auto"></audio>
+  <audio id="BS_AUD" src="favmusic.mp3" loop preload="auto"></audio>
+
+
+
 
 <script>
 'use strict';
@@ -1545,7 +1551,7 @@ document.addEventListener('mouseout',e=>{
 // ══════════════════════════════════════════
 (function initPreCount(){
   // ⬇ GANTI tanggal di bawah (format: 'YYYY-MM-DDTHH:MM:SS')
-  const TARGET_DATE = new Date('2026-03-10T00:00:00');
+  const TARGET_DATE = new Date('2026-03-07T00:00:00');
 
   const pc   = document.getElementById('PRECOUNT');
   const lock = document.getElementById('LOCK');
