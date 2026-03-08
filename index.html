@@ -1545,7 +1545,7 @@ document.addEventListener('mouseout',e=>{
 // ══════════════════════════════════════════
 (function initPreCount(){
   // ⬇ GANTI tanggal di bawah (format: 'YYYY-MM-DDTHH:MM:SS')
-  const TARGET_DATE = new Date('2026-03-07T00:00:00');
+  const TARGET_DATE = new Date('2026-03-10T00:00:00');
 
   const pc   = document.getElementById('PRECOUNT');
   const lock = document.getElementById('LOCK');
@@ -1652,7 +1652,7 @@ document.addEventListener('mouseout',e=>{
 })();
 
 // ── LOCK ──
-const PWD='1003';let pin='';
+const PWD='1957';let pin='';
 const pdots=[0,1,2,3].map(i=>document.getElementById('d'+i));
 const perr=document.getElementById('PERR');
 function updDots(){pdots.forEach((d,i)=>{d.classList.toggle('on',i<pin.length);d.classList.remove('err');});}
