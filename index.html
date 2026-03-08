@@ -1620,21 +1620,26 @@ document.addEventListener('mouseout',e=>{
   if(doneBtn)doneBtn.addEventListener('click',goToLock);
 
   // Click anywhere on pre-count → go to lock (when countdown still running)
-  pc.addEventListener('click',e=>{
-    if(e.target===doneBtn)return;
-    const done=document.getElementById('PRE_DONE');
-    // only advance via click if countdown is NOT done (done screen has its own button)
-    if(done&&done.classList.contains('show'))return;
+ pc.addEventListener('click',e=>{
+  const done=document.getElementById('PRE_DONE');
+
+  // hanya bisa lanjut jika countdown selesai
+  if(done && done.classList.contains('show')){
     goToLock();
-  });
+  }
+});
 
   // Touch swipe left → go to lock
   let touchX=0;
   pc.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX;},{passive:true});
   pc.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-touchX;
-    if(dx < -40) goToLock(); // swipe left
-  },{passive:true});
+  const done=document.getElementById('PRE_DONE');
+  const dx=e.changedTouches[0].clientX-touchX;
+
+  if(dx < -40 && done.classList.contains('show')){
+    goToLock();
+  }
+});
 
   // Keyboard → any key goes to lock
   document.addEventListener('keydown',function preKey(e){
