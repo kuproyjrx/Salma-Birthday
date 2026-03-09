@@ -1505,21 +1505,21 @@ let currentSong = 0;
 // set lagu pertama
 audio.src = PLAYLIST[currentSong].src;
 
-// autoplay setelah user klik layar
+// play setelah user klik layar
 document.addEventListener("click", function(){
-    audio.play().catch(()=>{});
+  audio.play().catch(()=>{});
 }, {once:true});
 
 // auto next lagu
 audio.addEventListener("ended", function(){
-    currentSong++;
-    if(currentSong >= PLAYLIST.length){
-        currentSong = 0;
-    }
-    audio.src = PLAYLIST[currentSong].src;
-    audio.play();
+  currentSong++;
+  if(currentSong >= PLAYLIST.length){
+    currentSong = 0;
+  }
+  audio.src = PLAYLIST[currentSong].src;
+  audio.play();
 });
-</script>
+</script>>
 
 
 
