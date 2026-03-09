@@ -1492,36 +1492,60 @@ canvas.bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 <audio id="BS_AUD" preload="auto"></audio>
 
 <script>
+
 var PLAYLIST=[
- { src:'assets/music/favmy.mp3', title:'Fav My Song' },
- { src:'assets/music/lagu1.mp3', title:'Lagu 1' },
- { src:'assets/music/lagu3.mp3', title:'Lagu 3' },
- { src:'assets/music/myfav.mp3', title:'My Favorite Song' }
+ {src:"assets/music/favmy.mp3",title:"Fav My Song"},
+ {src:"assets/music/lagu1.mp3",title:"Lagu 1"},
+ {src:"assets/music/lagu3.mp3",title:"Lagu 3"},
+ {src:"assets/music/myfav.mp3",title:"My Favorite"}
 ];
 
-const audio = document.getElementById("BS_AUD");
-let currentSong = 0;
+const audio=document.getElementById("BS_AUD");
+let currentSong=0;
 
-// set lagu pertama
-audio.src = PLAYLIST[currentSong].src;
+/* PLAY SONG */
+function playSong(i){
+ currentSong=i;
 
-// play setelah user klik layar
-document.addEventListener("click", function(){
-  audio.play().catch(()=>{});
-}, {once:true});
+ if(!PLAYLIST[i]) return;
 
-// auto next lagu
-audio.addEventListener("ended", function(){
-  currentSong++;
-  if(currentSong >= PLAYLIST.length){
-    currentSong = 0;
-  }
-  audio.src = PLAYLIST[currentSong].src;
-  audio.play();
-});
-</script>>
+ audio.src=PLAYLIST[i].src;
+ audio.volume=0.55;
 
+ audio.play().catch(()=>{});
+}
 
+/* NEXT SONG */
+function nextSong(){
+ currentSong++;
+
+ if(currentSong>=PLAYLIST.length){
+   currentSong=0;
+ }
+
+ playSong(currentSong);
+}
+
+/* PREVIOUS SONG */
+function prevSong(){
+ currentSong--;
+
+ if(currentSong<0){
+   currentSong=PLAYLIST.length-1;
+ }
+
+ playSong(currentSong);
+}
+
+/* AUTO NEXT */
+audio.addEventListener("ended",nextSong);
+
+/* AUTOPLAY AFTER UNLOCK */
+window._plAutoPlay=function(){
+ playSong(0);
+}
+
+</script>
 
 <script>
 'use strict';
